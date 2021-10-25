@@ -1,0 +1,21 @@
+defaultRules:
+  create: true
+  rules:
+    etcd: false
+    kubeScheduler: false
+
+alertmanager:
+  ingress:
+    enabled: true
+    hosts:
+      - localhost
+    path: /alert
+    ingressClassName: nginx
+  admissionWebhooks:
+    enabled: false
+    patch:
+      enabled: false
+  tlsProxy.enabled: false
+  alertmanagerSpec:
+    routePrefix: /alert
+
