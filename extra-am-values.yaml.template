@@ -157,21 +157,21 @@ alertmanager:
           repeat_interval: 10m
     inhibit_rules:
       - source_match:
-          severity: "medium"
-        target_match:
           severity: "low"
+        target_match:
+          severity: "warning"
+        equal:
+          - alertname
+      - source_match:
+          severity: "medium"
+        target_match_re:
+          severity: "(warning|low)"
         equal:
           - alertname
       - source_match:
           severity: "high"
         target_match_re:
-          severity: "(low|medium)"
-        equal:
-          - alertname
-      - source_match:
-          severity: "critical"
-        target_match_re:
-          severity: "(low|medium|high)"
+          severity: "(warning|low|medium)"
         equal:
           - alertname
     receivers:

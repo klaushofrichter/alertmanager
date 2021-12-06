@@ -36,6 +36,7 @@ echo "==== $0: Wait for everything to roll out"
 kubectl rollout status deployment.apps prom-grafana -n monitoring --request-timeout 5m
 kubectl rollout status deployment.apps prom-kube-state-metrics -n monitoring --request-timeout 5m
 kubectl rollout status deployment.apps prom-kube-prometheus-stack-operator -n monitoring --request-timeout 5m
+kubectl rollout status statefulset.apps/alertmanager-prom-kube-prometheus-stack-alertmanager -n monitoring --request-timeout 5m
 
 echo
 echo "==== $0: wait for prom-grafana ingress to be available"
